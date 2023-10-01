@@ -1,0 +1,209 @@
+@import "/src/scss/_reset";
+@import "/src/scss/_variables";
+
+.slider {
+	width: remHandler(1120);
+	margin: remHandler(116) auto remHandler(117);
+	position: relative;
+	&__slides {
+		width: 100%;
+		height: remHandler(702);
+		position: relative;
+	}
+	&__slide {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		position: absolute;
+		left: 0;
+		top: 0;
+		z-index: 1;
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity 1s;
+		&.active {
+			opacity: 1;
+			visibility: visible;
+		}
+		&-info {
+			width: remHandler(560);
+			margin-top: remHandler(120);
+			margin-left: remHandler(100);
+		}
+		&-text {
+			width: remHandler(522);
+			height: remHandler(230);
+			overflow: hidden;
+			display: -webkit-box;
+			-webkit-line-clamp: 7;
+			-webkit-box-orient: vertical;
+		}
+		&-text {
+			font-family: $m-r;
+			font-size: remHandler(24);
+			line-height: 140%;
+		}
+		&-text {
+			margin: remHandler(60) 0 remHandler(116);
+		}
+		&-title {
+			font-size: remHandler(68);
+			font-family: $m-b;
+		}
+		&-title {
+			max-height: remHandler(140);
+			overflow: hidden;
+			display: -webkit-box;
+			-webkit-line-clamp: 2;
+			-webkit-box-orient: vertical;
+		}
+		&-button {
+			width: 100%;
+			height: remHandler(65);
+			background-color: $black;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: remHandler(8);
+			&:hover {
+				background-color: $darkblue;
+			}
+		}
+		&-button {
+			color: $white;
+			text-decoration: none;
+			font-size: remHandler(20);
+			font-family: $m-m;
+		}
+		&-button {
+			transition: background-color 0.6s;
+		}
+		&-image {
+			width: 100%;
+			height: 100%;	
+			& img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				display: block;
+			}
+		}
+	}
+
+	&__arrow {
+		width: remHandler(60);
+		height: remHandler(60);
+		border-radius: 100%;
+		background-color: $black;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		opacity: 0.5;
+		position: absolute;
+		top: remHandler(400);
+		z-index: 3;
+		display: none;
+		transition: opacity 0.6s;
+		& svg {
+			width: remHandler(18);
+			height: remHandler(32);
+			pointer-events: none;
+			& path {
+				transition: stroke 0.6s;
+				stroke: $white
+			}
+		}
+		&--prev {
+			left: remHandler(12);
+		}
+		&--next {
+			right: remHandler(12);
+		}
+		@media (hover: hover) and (min-width: 1081px) {
+			&:hover {
+				cursor: pointer;
+				opacity: 1;
+				& path {
+					stroke: $red
+				}
+			}
+		}
+	}
+
+	&__dots {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		bottom: remHandler(-30);
+		left: 0;
+		z-index: 3;
+	}
+
+	&__dot {
+		display: block;
+		width: remHandler(12);
+		height: remHandler(12);
+		border-radius: 100%;
+		background-color: $darkwhite;
+		margin: 0 remHandler(5);
+		transition: background-color 0.6s;
+		
+		&.active {
+			background-color: $violet;
+		}
+		@media (hover: hover) and (min-width: 1081px) {
+			&:hover {
+				cursor: pointer;
+				background-color: $violet;
+			}
+		}
+	}
+	
+	@media screen and (max-width: 1080px) {
+		width: remHandler(700);
+		height: auto;
+		margin: remHandler(116) auto remHandler(130);
+		border-radius: 0;
+		$b-width: 620;
+		&__slides {
+			height: remHandler(450);
+		}
+		&__slide {
+			height: 100%;
+			flex-direction: column;
+			justify-content: flex-start;
+			&-info {
+				width: remHandler($b-width);
+				margin: remHandler(66) auto remHandler(32);
+			}
+			&-title {
+				font-size: remHandler(60);
+			}
+			&-text {
+				font-size: remHandler(18);
+			}
+			&-text {
+				height: remHandler(170);
+			}
+			&-image {
+				width: 100%;
+				height: 100%;
+				margin: 0 auto;
+				& img {
+					object-position: top;
+				}
+			}
+		}
+	}
+	@media screen and (max-width: 480px) {
+		width: 90%;
+		margin: remHandler(80) auto remHandler(50);
+		&__slides {
+			height: remHandler(250);
+		}
+	}
+}

@@ -1,0 +1,14 @@
+@import "_reset";
+@import "_variables";
+@import "_fonts";
+
+$color: #c3bbe7;
+
+html, body {
+	width: 100%;
+	overflow-x: hidden;
+}
+
+body {
+	font-family: $m-r, Arial, Helvetica, sans-serif;
+}

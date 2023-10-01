@@ -1,0 +1,176 @@
+.header {
+	width: 100%;
+	height: remHandler(116);
+	display: flex;
+	align-items: center;
+	background-color: $white;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 15;
+
+	&__wrapper {
+		width: 100%;
+		height: 100%;
+		max-width: remHandler(1119);
+		margin: 0 auto;
+		padding: 0 remHandler(40);
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	&__logo {
+		color: $darkblue;
+		text-decoration: none;
+		font-size: remHandler(24);
+		font-family: $m-b;
+	}
+
+	&__nav {
+		& a {
+			text-transform: uppercase;
+			font-size: remHandler(10);
+			font-family: $m-b;
+			margin-right: remHandler(40);
+			text-decoration: none;
+			color: #5C6A79;
+			transition: all 0.6s;
+
+			&:last-child {
+				margin-right: 0;
+			}
+			@mixin activeNavElement {
+				color: $darkblue;
+				font-family: $m-bl;
+			}
+			&.active {
+				@include activeNavElement;
+			}
+			@media (hover: hover) and (min-width: 1080px) {
+				&:hover {
+					@include activeNavElement;
+				}
+			}
+		}
+	}
+
+	&__buttons {
+		width: remHandler(120);
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	&__button {
+		position: relative;
+
+		&-count {
+			width: remHandler(13);
+			height: remHandler(13);
+			background-color: $red;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-family: $m-m;
+			color: $white;
+			font-size: remHandler(10);
+			border-radius: 100%;
+			position: absolute;
+			bottom: remHandler(-2);
+			right: remHandler(-5);
+		}
+
+		&:hover {
+			cursor: pointer;
+		}
+
+		& svg {
+			height: auto;
+			max-height: remHandler(17);
+			& path {
+				transition: all 0.6s;
+			}
+		}
+
+		&--login {
+			& svg {
+				width: remHandler(12);
+			}
+		}
+
+		&--search {
+			& svg {
+				width: remHandler(15);
+			}
+		}
+
+		&--basket {
+			& svg {
+				width: remHandler(14);
+			}
+		}
+	}
+
+	&__menu-button {
+		display: none;
+	}
+
+	@media screen and (max-width: 1080px) {
+		&__wrapper {
+			padding: 0 remHandler(50);
+		}
+		&__nav {
+			& a {
+				font-size: remHandler(12);
+				margin-right: remHandler(15);
+			}
+		}
+	}
+
+	@media screen and (max-width: 480px) {
+		$height: remHandler(80);
+		height: $height;
+		z-index: 11;
+		&__wrapper {
+			padding: 0 20px;
+		}
+		&__buttons {
+			width: 90px;
+		}
+		&__menu-button {
+			background: none;
+			border: none;
+			display: block;
+			width: remHandler(35);
+			margin-top: 3px;
+			& svg {
+				width: 100%;
+				height: auto;
+			}
+		}
+		&__nav {
+			width: 100%;
+			background-color: darken($darkwhite, 5%);
+			padding: 40px 0;
+			display: flex;
+			flex-direction: column;
+			position: fixed;
+			top: $height;
+			left: 0;
+			z-index: 10;
+			opacity: 0;
+			pointer-events: none;
+			transition: opacity 1s;
+			&.active {
+				opacity: 1;
+				pointer-events: initial;
+			}
+			& a {
+				margin-bottom: 15px;
+				font-size: 15px;
+				margin-left: 110px;
+			}
+		}
+	}
+}

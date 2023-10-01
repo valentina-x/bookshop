@@ -1,0 +1,23 @@
+[
+	{
+		"id": 0,
+		"title": "Заголовок слайда 1",
+		"description": "Описание. Может занимать от 1 до 7 строк. Описание. Может занимать от 1 до 7 строк. Описание. Может занимать от 1 до 7 строк. Описание. Может занимать от 1 до 7 строк. Описание. Может занимать от 1 до 7 строк. Описание. Может занимать от 1 до 7 строк.",
+		"imageURL": "/images/slider/slide1.jpg",
+		"link": "/link1"
+	},
+	{
+		"id": 1,
+		"title": "Заголовок слайда 2",
+		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic pariatur animi in! Necessitatibus nisi soluta optio ipsum dicta unde? Dolorum optio inventore repellendus non alias laborum error esse, quaerat deleniti. Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic pariatur animi in! Necessitatibus nisi soluta optio ipsum dicta unde? Dolorum optio inventore repellendus non alias laborum error esse, quaerat deleniti.",
+		"imageURL": "/images/slider/slide2.jpg",
+		"link": "/link2"
+	},
+	{
+		"id": 2,
+		"title": "Заголовок слайда 3",
+		"description": "Описание. Может занимать от 1 до 7 строк. Описание. Может занимать от 1 до 7 строк. Описание. Может занимать от 1 до 7 строк. Описание.",
+		"imageURL": "/images/slider/slide3.jpg",
+		"link": "/link3"
+	}
+]

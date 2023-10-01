@@ -1,0 +1,41 @@
+extends pug/base
+
+append vars
+  - html.classList.push('page-index');
+
+block content
+  include pug/header
+
+  // slider
+  #slider
+  a.sliderlink.sliderlink--type1(href="javascript:;") 
+    span Change old book on new
+    svg
+      use(xlink:href='#arrow')
+  a.sliderlink.sliderlink--type2(href="javascript:;") 
+    span top 100 books 2022
+    svg
+      use(xlink:href='#arrow')
+  // end slider
+
+  // main
+  main.wrapper 
+    aside.sidebar 
+      a.sidebar__link.active(href="#Architecture") Architecture
+      a.sidebar__link(href="#Art") Art & Fashion
+      a.sidebar__link(href="#Biography") Biography
+      a.sidebar__link(href="#Business") Business
+      a.sidebar__link(href="#Crafts & Hobbies") Crafts & Hobbies
+      a.sidebar__link(href="#Drama") Drama
+      a.sidebar__link(href="#Fiction") Fiction
+      a.sidebar__link(href="#Cooking") Food & Drink
+      a.sidebar__link(href="#Health & Fitness") Health & Wellbeing
+      a.sidebar__link(href="#History") History & Politics
+      a.sidebar__link(href="#Humor") Humor
+      a.sidebar__link(href="#Poetry") Poetry
+      a.sidebar__link(href="#Psychology") Psychology
+      a.sidebar__link(href="#Science") Science
+      a.sidebar__link(href="#Technology") Technology
+      a.sidebar__link(href="#Travel") Travel & Maps
+    .books#books
+  // end main

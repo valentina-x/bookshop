@@ -1,0 +1,22 @@
+header.header
+	.header__wrapper
+		button.header__menu-button(onclick="const nav = document.querySelector('.header__nav'); nav.classList.contains('active') ? nav.classList.remove('active') : nav.classList.add('active');")
+			svg
+				use(xlink:href='#menu')
+		a.header__logo(href="#")  Bookshop
+		nav.header__nav
+			a(href="#") Books 
+			a(href="#") Audiobooks 
+			a(href="#") Stationery & gifts 
+			a(href="#") Blog 
+		.header__buttons
+			button.header__button.header__button--login
+				svg
+					use(xlink:href='#login')
+			button.header__button.header__button--search
+				svg
+					use(xlink:href='#search')
+			button.header__button.header__button--basket
+				svg
+					use(xlink:href='#basket')
+				span.header__button-count 0

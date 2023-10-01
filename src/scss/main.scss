@@ -1,0 +1,339 @@
+@import "base";
+@import "header";
+
+.sliderlink {
+	width: remHandler(149);
+	height: auto;
+	position: absolute;
+	z-index: 10;
+	text-decoration: none;
+	transition: background-color 0.6s;
+	& span, & svg {
+		margin-left: remHandler(20);
+	}
+	& span {
+		display: block;
+		color: $darkblue;
+		font-family: $m-b;
+		font-size: remHandler(18);
+		text-transform: uppercase;
+	}
+	& svg {
+		width: remHandler(55);
+		height: remHandler(12);
+		margin-top: remHandler(9);
+		margin-bottom: remHandler(20);
+	}
+	&--type1  {
+		padding-top: remHandler(102);
+		background-color: $violet;
+		top: remHandler(193);
+		right: 0;
+		left: remHandler(1100);
+		margin: 0 auto;
+		& span {
+			width: remHandler(110);
+		}
+		&:hover {
+			cursor: pointer;
+			background-color: darken($violet, 10%);
+		}
+	}
+	&--type2  {
+		width: remHandler(158);
+		padding-top: remHandler(120);
+		background-color: $grey;
+		top: remHandler(358);
+		right: 0;
+		box-shadow: remHandler(14) remHandler(15) remHandler(36) rgba(53,49,84,.28);
+		& span {
+			width: remHandler(70);
+		}
+		&::before {
+			content: '';
+			width: remHandler(137);
+			height: remHandler(273);
+			background-color: $pink;
+			position: absolute;
+			right: remHandler(21);
+			top: remHandler(-11);
+			z-index: -1;
+			transition: background-color 0.6s;
+		}
+		&:hover::before {
+			cursor: pointer;
+			background-color: darken($pink, 10%);
+		}
+	}
+	@media screen and (max-width: 1440px) {
+		&--type1 {
+			right: remHandler(72);
+			left: inherit;
+		}
+		&--type2 {
+			top: remHandler(474);
+			right: remHandler(-22);
+		}
+	}
+	@media screen and (max-width: 1080px) {
+		&--type1 {
+			width: remHandler(120);
+			top: remHandler(140);
+			right: 0;
+			left: inherit;
+			& span {
+				width: remHandler(90);
+				font-size: remHandler(15);
+			}
+		}
+		&--type2 {
+			top: remHandler(400);
+			right: 0;
+		}
+	}
+	@media screen and (max-width: 480px) {
+		display: none;
+	}
+}
+
+.wrapper {
+	width: remHandler(1280);
+	display: flex;
+	align-items: flex-start;
+	position: relative;
+}
+
+.sidebar {
+	width: remHandler(416);
+	background-color: $darkwhite;
+	padding-top: remHandler(45);
+	padding-bottom: remHandler(81);
+	display: flex;
+	flex-direction: column;
+	&__link {
+		text-decoration: none;
+		color: $darkgrey;
+		font-size: remHandler(12);
+		font-family: $m-r; 
+		margin-left: remHandler(160);
+		margin-bottom: remHandler(23);
+		position: relative;
+		&::before {
+			content: '';
+			width: remHandler(6);
+			height: remHandler(6);
+			background-color: $darkviolet;
+			border-radius: 100%;
+			position: absolute;
+			top: remHandler(5);
+			left: remHandler(-14);
+			display: none;
+		}
+		&:last-child {
+			margin-bottom: 0;
+		}
+		@media (hover: hover) and (min-width: 1081px) {
+			&:hover  {
+				font-family: $m-b; 
+				&::before {
+					display: block;
+				}
+			}
+		}
+		&.active {
+			font-family: $m-b; 
+			&::before {
+				display: block;
+			}
+		}
+	}
+}
+
+.books {
+	width: remHandler(924);
+	min-height: remHandler(1127);
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: remHandler(76);
+	margin-top: remHandler(45);
+	margin-left: remHandler(-60);
+	margin-bottom: remHandler(120);
+	padding-bottom: remHandler(75);
+	position: relative;
+}
+
+@mixin button() {
+	display: block;
+	width: remHandler(176);
+	height: remHandler(45);
+	color: $darkestviolet;
+	font-size: remHandler(8);
+	text-transform: uppercase;
+	font-family: $m-b;
+	margin-top: remHandler(16);
+	border: remHandler(1) solid;
+	text-decoration: none;
+	transition: all 0.6s;
+	&:hover {
+		cursor: pointer;
+		background-color: $darkestviolet;
+		color: $white;
+	}
+}
+
+@mixin hidden() {
+	// opacity: 0;
+	// pointer-events: none;
+	display: none;
+}
+
+.book {
+	width: remHandler(424);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	&__image {
+		width: remHandler(212);
+		height: remHandler(300);
+		object-fit: cover;
+		box-shadow: 0px 24px 36px rgba(53, 49, 84, 0.28);
+	}
+	&__info {
+		width: remHandler(176);
+		color: $darkgrey;
+		font-size: remHandler(10);
+	}
+	&__authors {
+		width: remHandler(156);
+		max-height: remHandler(50);
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+		-webkit-line-clamp: 4;
+		text-overflow: ellipsis;
+	}
+	&__title {
+		color: $darkblue;
+		font-size: remHandler(16);
+		font-family: $m-b;
+		margin: remHandler(4) 0;
+	}
+	&__rating {
+		display: flex;
+		align-items: center;
+		&-averageRating {
+			color: $yellow;
+			font-size: remHandler(18);
+			margin-right: remHandler(6);
+			&.hidden {@include hidden;}
+		}
+		&-ratingsCount {
+			font-size: remHandler(11);
+			margin-top: remHandler(2);
+			&.hidden {@include hidden;}
+		}
+	}
+	&__description {
+		height: remHandler(40);
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+		-webkit-line-clamp: 3;
+		text-overflow: ellipsis;
+		margin: remHandler(16) 0;
+		&.hidden {
+			@include hidden;
+		}
+	}
+	&__retailPrice {
+		color: $darkblue;
+		font-size: remHandler(13);
+		font-family: $m-b;
+		&.hidden {
+			@include hidden;
+		}
+	}
+	&__buy {
+		@include button();
+		&.disabled {
+			color: $darkgrey;
+			border-color: $lightgrey;
+			pointer-events: none;
+		}
+		&.hidden {
+			@include hidden;
+		}
+	}
+}
+
+.booksload {
+	@include button();
+	margin: 0 auto remHandler(74);
+	position: absolute;
+	bottom: remHandler(-50);
+	left: 0;
+	right: 0;
+	margin: auto;
+	&.hidden {
+		display: none;
+	}
+}
+
+@media screen and (min-width: 1441px) {
+	.wrapper {
+		width: 95rem;
+	}
+	.sidebar {
+		width: 41rem;
+		& a {
+			margin-left: 65%;
+		}
+	}
+}
+
+@media screen and (max-width: 1080px) {
+	.wrapper {
+		width: 90%;
+		margin: auto;
+		display: block;
+	}
+	.sidebar {
+		width: initial;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-evenly;
+		padding-left: remHandler(50);
+		padding-right: remHandler(50);
+		padding-bottom: remHandler(40);
+
+		& a {
+			margin: 0 remHandler(10) remHandler(15);
+			font-size: remHandler(14);
+		}
+	}
+	.books {
+		width: 100%;
+		margin: remHandler(50) auto remHandler(100);
+		display: block;
+	}
+	.book {
+		width: 80%;
+		margin-bottom: remHandler(30);
+		&__image {
+			width: remHandler(300);
+			max-height: remHandler(380);
+			height: auto;
+		}
+		&__info {
+			margin-top: remHandler(30);
+		}
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.book {
+		width: 100%;
+		flex-direction: column;
+		margin-bottom: remHandler(50);
+	}
+}
